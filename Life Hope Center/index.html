@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Hope Center | Silang, Cavite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --brand-red:    #c0392b;
+    --brand-orange: #e8621a;
+    --brand-gold:   #e8a020;
+    --brand-gray:   #555560;
+    --brand-lgray:  #999aaa;
+    --orange:       #e8621a;
+    --orange-dark:  #b84c10;
+    --orange-light: #fff8f0;
+    --orange-mid:   #fdd9b5;
+    --gold:         #e8a020;
+    --gold-light:   #fff6e0;
+    --text:         #2a2a32;
+    --text-muted:   #6b6b78;
+    --text-light:   #a0a0ae;
+    --border:       #e8e8ec;
+    --white:        #ffffff;
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(160deg, #fff8f0 0%, #ffffff 35%, #fff8f0 65%, #ffffff 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+.nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 6%;
+    background: rgba(255,248,240,0.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(232,98,26,0.1);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { height: 48px; width: auto; object-fit: contain; }
+.nav-logo-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+.nav-logo-name span {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+    color: var(--text-muted); text-decoration: none; font-size: 13.5px; font-weight: 500;
+    padding: 7px 12px; border-radius: 8px; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--text); background: rgba(232,98,26,0.07); }
+.nav-cta { background: var(--orange) !important; color: white !important; border-radius: 8px !important; margin-left: 4px !important; }
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* ── HERO ── */
+.hero {
+    padding: 80px 6% 70px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 56px; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+}
+.hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange-light); border: 1px solid var(--orange-mid);
+    color: var(--orange-dark); font-size: 11.5px; font-weight: 600;
+    letter-spacing: 0.7px; text-transform: uppercase;
+    padding: 5px 13px; border-radius: 100px; margin-bottom: 20px;
+}
+.hero-eyebrow-dot { width: 6px; height: 6px; background: var(--brand-red); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+.hero h1 {
+    font-weight: 800;
+    font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+.hero h1 .highlight {
+    color: var(--brand-orange);
+    background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-tagline {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 460px; margin-bottom: 10px; line-height: 1.75; font-weight: 400;
+}
+.hero-what {
+    font-size: 0.9rem; color: var(--text-muted);
+    max-width: 460px; margin-bottom: 32px; line-height: 1.7;
+    padding: 14px 16px;
+    background: rgba(232,98,26,0.05);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 8px 8px 0; font-weight: 400;
+}
+.hero-what strong { color: var(--text); font-weight: 600; }
+.hero-actions { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; margin-bottom: 16px; }
+.btn-primary {
+    background: var(--orange); color: white; border: none;
+    padding: 13px 26px; font-size: 15px; font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif; border-radius: 10px; cursor: pointer;
+    transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,98,26,0.3); }
+.btn-ghost {
+    background: transparent; color: var(--text-muted); border: 1.5px solid var(--border);
+    padding: 12px 22px; font-size: 15px; font-weight: 500;
+    font-family: 'Plus Jakarta Sans', sans-serif; border-radius: 10px; cursor: pointer; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--text); color: var(--text); }
+
+/* Hero video */
+.hero-video-wrap {
+    display: block; text-decoration: none; border-radius: 20px;
+    overflow: hidden; box-shadow: 0 12px 40px rgba(232,98,26,0.15);
+    border: 1px solid rgba(232,98,26,0.15);
+    background: #000; animation: floatUp 0.6s ease both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-video-wrap:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(232,98,26,0.22); }
+.hero-video-thumb { position: relative; width: 100%; height: 340px; overflow: hidden; background: #000; }
+.hero-video-thumb iframe { width: 100%; height: 100%; display: block; border: none; }
+.hero-video-caption {
+    background: rgba(255,248,240,0.95); padding: 12px 18px;
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid rgba(232,98,26,0.1);
+}
+.hero-video-badge {
+    background: var(--orange-light); color: var(--orange-dark);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px; flex-shrink: 0;
+}
+.hero-video-caption p { font-size: 12.5px; color: var(--text-muted); }
+@keyframes floatUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── QUOTE BAND ── */
+.quote-band {
+    background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-orange) 50%, var(--brand-gold) 100%);
+    padding: 52px 6%; text-align: center;
+}
+.quote-band blockquote {
+    font-style: normal; font-weight: 300;
+    font-size: clamp(1.2rem, 2.6vw, 1.75rem); color: white;
+    max-width: 780px; margin: 0 auto; line-height: 1.55;
+}
+.quote-band cite {
+    display: block; margin-top: 16px;
+    font-style: normal; font-size: 12px; font-weight: 600;
+    letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.62);
+}
+
+/* ── SHARED ── */
+.tag { display: inline-block; background: var(--orange-light); color: var(--orange-dark); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 6px; margin-bottom: 14px; }
+.section-title { font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -0.5px; line-height: 1.18; color: var(--text); margin-bottom: 15px; }
+.section-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.78; font-weight: 400; }
+
+/* ── MISSION & VISION ── */
+.mv-section { padding: 86px 6%; max-width: 1200px; margin: 0 auto; }
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+.mv-card {
+    background: rgba(255,255,255,0.88); backdrop-filter: blur(8px);
+    border: 1px solid rgba(232,98,26,0.15); border-radius: 22px;
+    padding: 36px 32px; position: relative; overflow: hidden;
+}
+.mv-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--brand-red), var(--brand-orange), var(--brand-gold));
+}
+.mv-card-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.mv-card-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+.mv-card-title { font-weight: 700; font-size: 1.3rem; color: var(--text); margin-bottom: 14px; }
+.mv-card-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-weight: 400; }
+
+/* ── ABOUT ── */
+.about-bg { background: rgba(232,160,32,0.06); border-top: 1px solid rgba(232,98,26,0.1); border-bottom: 1px solid rgba(232,98,26,0.1); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about-list { margin-top: 26px; display: flex; flex-direction: column; gap: 15px; }
+.about-item { display: flex; align-items: flex-start; gap: 12px; }
+.about-item-icon { width: 28px; height: 28px; background: var(--orange-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.about-item-text strong { display: block; font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 2px; }
+.about-item-text span { font-size: 13.5px; color: var(--text-muted); }
+
+/* ── INFO CARDS ── */
+.info-cards { display: flex; flex-direction: column; gap: 18px; }
+.info-card { background: rgba(255,255,255,0.88); backdrop-filter: blur(8px); border: 1px solid rgba(232,98,26,0.13); border-radius: 20px; padding: 26px; box-shadow: 0 2px 14px rgba(232,98,26,0.05); }
+.info-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.info-card-icon { width: 36px; height: 36px; background: var(--orange-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; }
+.info-card-title { font-weight: 600; font-size: 15px; color: var(--text); }
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+.hours-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(232,98,26,0.07); }
+.hours-row.full { grid-column: 1/-1; }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.hours-time { font-size: 13px; color: var(--text); font-weight: 600; }
+.hours-closed { color: var(--text-light) !important; font-style: italic; font-weight: 400 !important; }
+.location-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 13px; }
+.location-detail:last-child { margin-bottom: 0; }
+.location-detail svg { flex-shrink: 0; margin-top: 3px; stroke: var(--orange); }
+.location-detail-text { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+.location-detail-text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 2px; }
+.fb-link { color: var(--brand-orange); text-decoration: none; font-weight: 500; }
+.fb-link:hover { text-decoration: underline; }
+.map-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--orange); color: white; text-decoration: none;
+    font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 8px;
+    margin-top: 10px; transition: background 0.2s;
+}
+.map-btn:hover { background: var(--orange-dark); }
+
+/* ── HISTORY ── */
+.history-section { padding: 86px 6%; max-width: 1200px; margin: 0 auto; }
+.history-text { font-size: 0.97rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-weight: 400; }
+.history-pillars { display: flex; flex-direction: column; gap: 14px; }
+.history-pillar {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(6px);
+    border: 1px solid rgba(232,98,26,0.13); border-radius: 14px; padding: 16px 18px;
+}
+.history-pillar-icon { width: 36px; height: 36px; background: var(--orange-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.history-pillar-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.history-pillar-text span { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── WHAT IS LHC ── */
+.definition-bg { background: rgba(232,237,213,0.22); border-top: 1px solid rgba(232,98,26,0.12); border-bottom: 1px solid rgba(232,98,26,0.12); }
+.definition-intro { max-width: 680px; margin: 0 auto 52px; text-align: center; }
+.lhc-definition-card {
+    background: rgba(255,255,255,0.9); border: 1px solid rgba(232,98,26,0.15);
+    border-radius: 18px; padding: 26px 28px; margin-bottom: 36px; text-align: center;
+}
+.lhc-definition-card p { font-style: normal; font-weight: 300; font-size: 1.1rem; color: var(--brand-gray); line-height: 1.65; }
+.lhc-definition-card p span { color: var(--brand-orange); font-weight: 600; }
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.pillar-card {
+    background: rgba(255,255,255,0.82); backdrop-filter: blur(8px);
+    border: 1px solid rgba(232,98,26,0.13); border-radius: 18px; padding: 26px 22px;
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--brand-red), var(--brand-orange), var(--brand-gold)); opacity: 0; transition: opacity 0.3s; }
+.pillar-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(232,98,26,0.12); border-color: var(--brand-orange); }
+.pillar-card:hover::before { opacity: 1; }
+.pillar-num { font-weight: 800; font-size: 38px; color: var(--orange-mid); line-height: 1; margin-bottom: 12px; }
+.pillar-title { font-weight: 600; font-size: 15.5px; color: var(--text); margin-bottom: 8px; }
+.pillar-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; font-weight: 400; }
+
+/* ── SERVICES ── */
+.services-bg { background: rgba(192,57,43,0.04); border-top: 1px solid rgba(192,57,43,0.08); border-bottom: 1px solid rgba(192,57,43,0.08); }
+.services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 46px; flex-wrap: wrap; gap: 20px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 15px; }
+.service-card {
+    background: rgba(255,255,255,0.78); backdrop-filter: blur(8px);
+    border: 1px solid rgba(232,98,26,0.12); border-radius: 18px;
+    padding: 26px 20px; transition: all 0.3s ease;
+}
+.service-card:hover { border-color: var(--brand-orange); box-shadow: 0 8px 28px rgba(232,98,26,0.11); transform: translateY(-4px); }
+.service-icon { width: 46px; height: 46px; background: var(--orange-light); border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 14px; }
+.service-title { font-weight: 600; font-size: 14.5px; color: var(--text); margin-bottom: 6px; }
+.service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 400; }
+
+/* ── BOOKING / CAROUSEL SECTION ── */
+.booking-section-wrap { padding: 86px 6%; max-width: 1200px; margin: 0 auto; }
+.booking-header { text-align: center; margin-bottom: 48px; }
+.booking-header .tag { margin-bottom: 14px; }
+.booking-header h2 { margin-bottom: 10px; }
+.booking-header p { color: var(--text-muted); font-size: 0.97rem; max-width: 500px; margin: 0 auto; }
+
+/* Carousel */
+.carousel-wrapper { position: relative; }
+.carousel-track-outer { overflow: hidden; border-radius: 24px; }
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+    min-width: 100%; position: relative;
+    background: #1a1a1a; border-radius: 24px; overflow: hidden;
+    min-height: 420px;
+}
+.carousel-slide-img {
+    width: 100%; height: 420px; object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+}
+.carousel-slide:hover .carousel-slide-img { transform: scale(1.03); }
+.carousel-slide-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,6,2,0.85) 0%, rgba(10,6,2,0.3) 55%, transparent 100%);
+    border-radius: 24px;
+}
+.carousel-slide-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px 36px; display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 16px;
+}
+.carousel-room-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+    color: white; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 12px; border-radius: 6px; margin-bottom: 10px;
+}
+.carousel-room-name {
+    font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: white; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 8px;
+}
+.carousel-room-desc {
+    font-size: 14px; color: rgba(255,255,255,0.72); max-width: 360px; line-height: 1.65;
+}
+.carousel-book-btn {
+    background: linear-gradient(135deg, var(--brand-orange), var(--brand-gold));
+    color: white; border: none; padding: 13px 26px; font-size: 14.5px; font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif; border-radius: 10px; cursor: pointer;
+    transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(232,98,26,0.45);
+}
+.carousel-book-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,98,26,0.65); }
+
+/* Nav arrows */
+.carousel-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25); color: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s; z-index: 10; font-size: 18px;
+}
+.carousel-arrow:hover { background: rgba(232,98,26,0.7); border-color: transparent; }
+.carousel-arrow.prev { left: 16px; }
+.carousel-arrow.next { right: 16px; }
+
+/* Dots */
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+.carousel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--border); cursor: pointer; transition: all 0.25s;
+    border: none; padding: 0;
+}
+.carousel-dot.active { background: var(--orange); width: 24px; border-radius: 4px; }
+
+/* Room thumbnails */
+.carousel-thumbs { display: flex; gap: 12px; margin-top: 16px; }
+.carousel-thumb {
+    flex: 1; height: 80px; border-radius: 12px; overflow: hidden;
+    cursor: pointer; border: 2px solid transparent;
+    transition: all 0.25s; opacity: 0.6;
+}
+.carousel-thumb.active { border-color: var(--orange); opacity: 1; }
+.carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── FOOTER ── */
+footer {
+    padding: 44px 6%;
+    border-top: 1px solid rgba(232,98,26,0.12);
+    background: linear-gradient(to right, rgba(255,237,213,0.5), rgba(255,255,255,0.5), rgba(255,237,213,0.5));
+}
+.footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 20px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.footer-brand img { height: 38px; width: auto; object-fit: contain; }
+.footer-brand-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.footer-brand-name span { display: block; font-size: 11px; font-weight: 400; color: var(--text-muted); }
+.footer-copy { font-size: 12px; color: var(--text-muted); text-align: center; }
+.footer-links { display: flex; gap: 18px; justify-content: flex-end; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--brand-orange); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 70px 5% 60px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .mv-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; text-align: center; }
+    .footer-links { justify-content: center; }
+    .footer-brand { justify-content: center; }
+}
+@media (max-width: 600px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .hours-grid { grid-template-columns: 1fr; }
+    .hours-row.full { grid-column: 1; }
+    .carousel-slide-content { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    .carousel-thumbs { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav">
+    <a href="#" class="nav-logo">
+        <img src="LHC_LOGO.png" alt="Life Hope Center Logo">
+        <div class="nav-logo-name">
+            Life Hope Center
+            <span>Silang, Cavite</span>
+        </div>
+    </a>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#mission">Mission</a>
+        <a href="#about">About</a>
+        <a href="#what-is-lhc">What is LHC</a>
+        <a href="#services">Services</a>
+        <a href="#booking" class="nav-cta">Book Room</a>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div style="max-width:1200px; margin:0 auto;">
+<section class="hero">
+    <div>
+        <div class="hero-eyebrow">
+            <div class="hero-eyebrow-dot"></div>
+            Silang, Cavite &nbsp;·&nbsp; SDA Community Ministry
+        </div>
+        <h1>A place where<br><span class="highlight">everyone belongs</span></h1>
+        <p class="hero-tagline">
+            Life Hope Center is a community-based ministry of the Seventh-day Adventist Church in Silang, Cavite — a safe, welcoming space where individuals and families find care, support, and spiritual hope.
+        </p>
+        <div class="hero-what">
+            <strong>Serving the whole person</strong> — physically, mentally, socially, and spiritually — through compassionate programs, community outreach, and Christ-centered discipleship.
+        </div>
+        <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                Explore Our Programs
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn Our Story</button>
+        </div>
+    </div>
+    <div class="hero-video-wrap">
+        <div class="hero-video-thumb">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/v0goZbNStDc?rel=0&modestbranding=1"
+                title="Life Hope Center – Official Overview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="hero-video-caption">
+            <span class="hero-video-badge">▶ Watch</span>
+            <p>Life Hope Center – Silang, Cavite · Official Overview</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ── QUOTE BAND ── -->
+<div class="quote-band">
+    <blockquote>
+        "Some places change lives quietly — faith shared through presence, not pressure."
+        <cite>Life Hope Center · Silang, Cavite</cite>
+    </blockquote>
+</div>
+
+<!-- ── MISSION & VISION ── -->
+<section id="mission" class="mv-section">
+    <div style="text-align:center; max-width:640px; margin:0 auto 0;">
+        <span class="tag">Our Purpose</span>
+        <h2 class="section-title">Mission &amp; Vision</h2>
+        <p class="section-desc">Grounded in Christ's method of ministry — meeting people where they are, serving their whole person.</p>
+    </div>
+    <div class="mv-grid">
+        <div class="mv-card">
+            <span class="mv-card-icon">🎯</span>
+            <div class="mv-card-label">Our Mission</div>
+            <h3 class="mv-card-title">Sharing the Love of Christ</h3>
+            <p class="mv-card-text">To share the love of Christ by meeting the holistic needs of individuals and communities — physical, mental, social, and spiritual — through compassionate service, health programs, education, and discipleship.</p>
+        </div>
+        <div class="mv-card">
+            <span class="mv-card-icon">✨</span>
+            <div class="mv-card-label">Our Vision</div>
+            <h3 class="mv-card-title">Transformed Communities</h3>
+            <p class="mv-card-text">To see transformed communities where people experience hope, healing, and wholeness in Jesus Christ, and are empowered to live abundant lives in preparation for His soon return.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT + HOURS/LOCATION ── -->
+<div id="about" class="about-bg">
+<section style="padding: 86px 6%; max-width:1200px; margin:0 auto;">
+    <div class="about-grid">
+        <div>
+            <span class="tag">Who We Are</span>
+            <h2 class="section-title">A ministry rooted<br>in Silang, Cavite</h2>
+            <p class="section-desc">
+                The Life Hope Center is a community-based ministry of the Seventh-day Adventist Church, located at the Southern Asia-Pacific Division compound in Silang, Cavite. It functions as a safe and welcoming space where individuals and families find support, education, and spiritual guidance.
+            </p>
+            <div class="about-list">
+                <div class="about-item">
+                    <div class="about-item-icon">👨‍👩‍👧</div>
+                    <div class="about-item-text">
+                        <strong>Children &amp; Families</strong>
+                        <span>Programs focused on child development, parenting support, and family wellbeing.</span>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="about-item-icon">🩺</div>
+                    <div class="about-item-text">
+                        <strong>Health &amp; Outreach</strong>
+                        <span>Health initiatives and community outreach that respond to practical, everyday needs.</span>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <div class="about-item-icon">📖</div>
+                    <div class="about-item-text">
+                        <strong>Faith &amp; Bible Learning</strong>
+                        <span>Reflecting Christ's love through presence, service, and relationship-building.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="visit" class="info-cards">
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-card-icon">🕐</div>
+                    <span class="info-card-title">Opening Hours</span>
+                </div>
+                <div class="hours-grid">
+                    <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">8am – 5pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">8am – 5pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">8am – 5pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">8am – 5pm</span></div>
+                    <div class="hours-row full"><span class="hours-day">Friday</span><span class="hours-time">8am – 12nn</span></div>
+                    <div class="hours-row full"><span class="hours-day">Saturday &amp; Sunday</span><span class="hours-time hours-closed">Closed</span></div>
+                </div>
+                <p style="font-size:11.5px; color:var(--text-light); margin-top:12px; padding-top:10px; border-top:1px solid rgba(232,98,26,0.08);">
+                    ⚠️ Friday hours end at 12 noon in observance of the Sabbath.
+                </p>
+            </div>
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-card-icon">📍</div>
+                    <span class="info-card-title">Find Us</span>
+                </div>
+                <div class="location-detail">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div class="location-detail-text">
+                        <strong>Address</strong>
+                        Aguinaldo Highway, San Miguel II, Bypass<br>Silang, Cavite 4118, Philippines
+                        <a class="map-btn" href="https://maps.app.goo.gl/1WafYXWByRogkSVV8" target="_blank" rel="noopener">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.91-1.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div class="location-detail-text">
+                        <strong>Contact</strong>
+                        +63 998 583 0239
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    <div class="location-detail-text">
+                        <strong>Facebook</strong>
+                        <a class="fb-link" href="https://www.facebook.com/109604132167860/" target="_blank" rel="noopener">Follow us on Facebook →</a>
+                    </div>
+                </div>
+                <div class="location-detail">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    <div class="location-detail-text">
+                        <strong>Parking</strong>
+                        Can accommodate up to 50 cars on-site
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ── HISTORY ── -->
+<section class="history-section">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;">
+        <div>
+            <span class="tag">Our History</span>
+            <h2 class="section-title">Rooted in a century<br>of mission</h2>
+            <p class="history-text">The concept of the Life Hope Center is rooted in the long-standing mission of the Seventh-day Adventist Church, which began in the mid-1800s with a strong focus on health, education, and gospel ministry. From its early years, the church established sanitariums, clinics, schools, and publishing houses to serve both physical and spiritual needs.</p>
+            <p class="history-text">In more recent decades, the church recognized the need for more accessible, community-level outreach centers — ministries that go beyond church buildings and address urban poverty, health crises, and social needs. In the Philippines, Life Hope Centers became part of the church's strategy for Total Member Involvement (TMI) and urban mission.</p>
+            <p class="history-text" style="font-style:italic; color:var(--brand-gray);">"Mingling with people, showing sympathy, ministering to needs, winning confidence, and inviting them to follow Him."</p>
+        </div>
+        <div class="history-pillars">
+            <div class="history-pillar">
+                <div class="history-pillar-icon">🏥</div>
+                <div class="history-pillar-text"><strong>Health Programs</strong><span>Lifestyle disease prevention, medical outreach, and wellness initiatives for the community.</span></div>
+            </div>
+            <div class="history-pillar">
+                <div class="history-pillar-icon">🍱</div>
+                <div class="history-pillar-text"><strong>Feeding &amp; Relief</strong><span>Regular community feeding events and relief operations for those in need.</span></div>
+            </div>
+            <div class="history-pillar">
+                <div class="history-pillar-icon">🛠️</div>
+                <div class="history-pillar-text"><strong>Skills &amp; Livelihood</strong><span>Skills training and livelihood support to empower families and individuals.</span></div>
+            </div>
+            <div class="history-pillar">
+                <div class="history-pillar-icon">📖</div>
+                <div class="history-pillar-text"><strong>Counseling &amp; Bible Study</strong><span>Spiritual guidance and Bible study programs for all backgrounds and beliefs.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── WHAT IS LHC ── -->
+<div id="what-is-lhc" class="definition-bg">
+<section style="padding: 86px 6%; max-width:1200px; margin:0 auto;">
+    <div class="definition-intro">
+        <span class="tag">What is LHC?</span>
+        <h2 class="section-title">More than a building —<br>a center of influence</h2>
+    </div>
+    <div class="lhc-definition-card">
+        <p>"A Life Hope Center is a welcoming community space where people experience <span>care, connection, and hope</span> through holistic service and faith."</p>
+    </div>
+    <div class="pillars-grid">
+        <div class="pillar-card"><div class="pillar-num">01</div><p class="pillar-title">A Place of Belonging</p><p class="pillar-desc">Not just a building, but a refuge where people are known, valued, and cared for — regardless of background.</p></div>
+        <div class="pillar-card"><div class="pillar-num">02</div><p class="pillar-title">A Hub for Holistic Programs</p><p class="pillar-desc">Child development, family support, health &amp; wellness, counseling, and life-skills programs — all under one roof.</p></div>
+        <div class="pillar-card"><div class="pillar-num">03</div><p class="pillar-title">A Bridge to the Community</p><p class="pillar-desc">Connecting faith with real-life needs through food, visits, outreach, and spaces for conversation and growth.</p></div>
+        <div class="pillar-card"><div class="pillar-num">04</div><p class="pillar-title">A Center of Influence</p><p class="pillar-desc">A model of Adventist ministry that reaches people through service, relationships, and Christ-like compassion.</p></div>
+    </div>
+</section>
+</div>
+
+<!-- ── SERVICES ── -->
+<div id="services" class="services-bg">
+<section style="padding: 86px 6%; max-width:1200px; margin:0 auto;">
+    <div class="services-header">
+        <div>
+            <span class="tag">Our Facilities &amp; Programs</span>
+            <h2 class="section-title">How we can help you</h2>
+        </div>
+        <p style="font-size:13.5px; color:var(--text-muted); max-width:270px; line-height:1.65;">All services and facilities are offered with care and respect for every individual.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🍽️</div><p class="service-title">Cafeteria</p><p class="service-desc">On-site dining facility serving meals for guests, staff, and community members within the LHC compound.</p></div>
+        <div class="service-card"><div class="service-icon">🛏️</div><p class="service-title">Guest Rooms</p><p class="service-desc">Comfortable, secure accommodations available for booking — ideal for visitors, delegates, and community guests.</p></div>
+        <div class="service-card"><div class="service-icon">💪</div><p class="service-title">Fitness Gym</p><p class="service-desc">A dedicated fitness facility supporting the center's health and wellness mission for the community.</p></div>
+        <div class="service-card"><div class="service-icon">🤝</div><p class="service-title">Conference &amp; Meeting Rooms</p><p class="service-desc">Professional meeting spaces available for seminars, trainings, and organizational gatherings.</p></div>
+        <div class="service-card"><div class="service-icon">🏛️</div><p class="service-title">Convention Hall</p><p class="service-desc">A large-capacity hall suitable for events, community programs, worship services, and conventions.</p></div>
+        <div class="service-card"><div class="service-icon">🕊️</div><p class="service-title">Spiritual Support</p><p class="service-desc">Bible study and faith-based guidance offered with warmth — for anyone seeking hope and meaning.</p></div>
+    </div>
+</section>
+</div>
+
+<!-- ── GUEST ROOM BOOKING CAROUSEL ── -->
+<section id="booking" style="background: rgba(192,57,43,0.03); border-top: 1px solid rgba(232,98,26,0.1);">
+<div class="booking-section-wrap">
+    <div class="booking-header">
+        <span class="tag">🏠 Guest Rooms · LHC Building</span>
+        <h2 class="section-title">Looking for a place to stay?</h2>
+        <p>The LHC building has guest rooms available for booking — right on the Life Hope Center compound in Silang, Cavite.</p>
+    </div>
+
+    <div class="carousel-wrapper">
+        <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+                <!-- Slide 1: Premier -->
+                <div class="carousel-slide">
+                    <img class="carousel-slide-img" src="premier.png" alt="Premier Room">
+                    <div class="carousel-slide-overlay"></div>
+                    <div class="carousel-slide-content">
+                        <div>
+                            <div class="carousel-room-name">Premier Room</div>
+                            <div class="carousel-room-desc">A spacious, elegantly appointed room with premium furnishings — perfect for delegates and professional guests seeking comfort and calm.</div>
+                        </div>
+                        <button class="carousel-book-btn" onclick="bookNow('Premier Room')">
+                            Reserve Now
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Suite -->
+                <div class="carousel-slide">
+                    <img class="carousel-slide-img" src="suite.png" alt="Suite Room">
+                    <div class="carousel-slide-overlay"></div>
+                    <div class="carousel-slide-content">
+                        <div>
+                            <div class="carousel-room-name">Suite Room</div>
+                            <div class="carousel-room-desc">Our finest accommodation — a generous suite with a warm, inviting atmosphere ideal for extended stays and VIP guests.</div>
+                        </div>
+                        <button class="carousel-book-btn" onclick="bookNow('Suite Room')">
+                            Reserve Now
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Deluxe -->
+                <div class="carousel-slide">
+                    <img class="carousel-slide-img" src="deluxe.png" alt="Deluxe Room">
+                    <div class="carousel-slide-overlay"></div>
+                    <div class="carousel-slide-content">
+                        <div>
+                            <div class="carousel-room-name">Deluxe Room</div>
+                            <div class="carousel-room-desc">A well-appointed deluxe room offering a comfortable, bright stay — great for families, couples, or individual travelers.</div>
+                        </div>
+                        <button class="carousel-book-btn" onclick="bookNow('Deluxe Room')">
+                            Reserve Now
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div><!-- /carousel-track -->
+        </div><!-- /carousel-track-outer -->
+
+        <!-- Arrow buttons -->
+        <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous room">&#8592;</button>
+        <button class="carousel-arrow next" id="nextBtn" aria-label="Next room">&#8594;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots" id="carouselDots">
+        <button class="carousel-dot active" data-index="0"></button>
+        <button class="carousel-dot" data-index="1"></button>
+        <button class="carousel-dot" data-index="2"></button>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="carousel-thumbs" id="carouselThumbs">
+        <div class="carousel-thumb active" data-index="0">
+            <img src="premier.png" alt="Premier Room">
+        </div>
+        <div class="carousel-thumb" data-index="1">
+            <img src="suite.png" alt="Suite Room">
+        </div>
+        <div class="carousel-thumb" data-index="2">
+            <img src="deluxe.png" alt="Deluxe Room">
+        </div>
+    </div>
+
+    <p style="text-align:center; font-size:12px; color:var(--text-light); margin-top:18px;">
+        <svg style="display:inline; vertical-align:middle;" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Secure login required to complete your reservation
+    </p>
+</div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <a href="#" class="footer-brand">
+            <img src="LHC_LOGO.png" alt="Life Hope Center Logo">
+            <div class="footer-brand-name">
+                Life Hope Center
+                <span>Silang, Cavite</span>
+            </div>
+        </a>
+        <span class="footer-copy">&copy; 2026 Life Hope Center, Silang Cavite · Committed to Your Wellbeing</span>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/109604132167860/" target="_blank" rel="noopener">Facebook</a>
+            <a href="#visit">Hours &amp; Location</a>
+            <a href="#booking">Book a Guest Room</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ── CAROUSEL LOGIC ──
+(function() {
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const thumbs = document.querySelectorAll('.carousel-thumb');
+    const total = 3;
+    let current = 0;
+    let autoTimer;
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        thumbs.forEach((t, i) => t.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        goTo(current - 1);
+        resetAuto();
+    });
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        goTo(current + 1);
+        resetAuto();
+    });
+
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.index));
+            resetAuto();
+        });
+    });
+
+    thumbs.forEach(function(thumb) {
+        thumb.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.index));
+            resetAuto();
+        });
+    });
+
+    function startAuto() {
+        autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+    }
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    startAuto();
+})();
+
+// ── BOOKING ──
+function bookNow(roomType) {
+    if (confirm('You will be redirected to the Life Hope Center secure booking system to reserve a ' + roomType + '. Continue?')) {
+        alert('Redirecting to booking system...\n\n(Connect your booking URL here.)');
+    }
+}
+</script>
+</body>
+</html>
