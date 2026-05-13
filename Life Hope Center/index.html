@@ -445,6 +445,36 @@ footer {
     .carousel-slide-content { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
     .carousel-thumbs { gap: 8px; }
 }
+
+/* ── FACILITIES GRID ── */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.fac-card {
+    display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap;
+    background: rgba(255,255,255,0.85); backdrop-filter: blur(8px);
+    border: 1px solid rgba(232,98,26,0.13); border-radius: 16px;
+    padding: 20px 22px; transition: all 0.3s ease;
+}
+.fac-card:hover {
+    border-color: var(--orange); transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(232,98,26,0.1);
+}
+.fac-icon {
+    font-size: 24px; width: 46px; height: 46px; flex-shrink: 0;
+    background: var(--orange-light); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+}
+.fac-title { font-weight: 600; font-size: 14.5px; color: var(--text); margin-bottom: 5px; }
+.fac-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+.fac-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.fac-tags span {
+    background: var(--orange-light); color: var(--orange-dark);
+    font-size: 11.5px; font-weight: 500; padding: 4px 10px;
+    border-radius: 20px; border: 1px solid var(--orange-mid);
+}
 </style>
 </head>
 <body>
@@ -464,7 +494,6 @@ footer {
         <a href="#about">About</a>
         <a href="#what-is-lhc">What is LHC</a>
         <a href="#services">Services</a>
-        <a href="#booking" class="nav-cta">Book Room</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -478,7 +507,6 @@ footer {
     <a href="#about" onclick="closeMenu()">About <span>›</span></a>
     <a href="#what-is-lhc" onclick="closeMenu()">What is LHC <span>›</span></a>
     <a href="#services" onclick="closeMenu()">Services <span>›</span></a>
-    <a href="#booking" class="mobile-cta" onclick="closeMenu()">Book a Room</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -709,23 +737,142 @@ footer {
         </div>
         <p style="font-size:13.5px; color:var(--text-muted); max-width:270px; line-height:1.65;">All services and facilities are offered with care and respect for every individual.</p>
     </div>
-    <div class="services-grid">
-        <div class="service-card"><div class="service-icon">🍽️</div><p class="service-title">Cafeteria</p><p class="service-desc">On-site dining facility serving meals for guests, staff, and community members within the LHC compound.</p></div>
-        <div class="service-card"><div class="service-icon">🛏️</div><p class="service-title">Guest Rooms</p><p class="service-desc">Comfortable, secure accommodations available for booking — ideal for visitors, delegates, and community guests.</p></div>
-        <div class="service-card"><div class="service-icon">💪</div><p class="service-title">Fitness Gym</p><p class="service-desc">A dedicated fitness facility supporting the center's health and wellness mission for the community.</p></div>
-        <div class="service-card"><div class="service-icon">🤝</div><p class="service-title">Conference &amp; Meeting Rooms</p><p class="service-desc">Professional meeting spaces available for seminars, trainings, and organizational gatherings.</p></div>
-        <div class="service-card"><div class="service-icon">🏛️</div><p class="service-title">Convention Hall</p><p class="service-desc">A large-capacity hall suitable for events, community programs, worship services, and conventions.</p></div>
-        <div class="service-card"><div class="service-icon">🕊️</div><p class="service-title">Spiritual Support</p><p class="service-desc">Bible study and faith-based guidance offered with warmth — for anyone seeking hope and meaning.</p></div>
+    <div class="facilities-grid">
+
+        <div class="fac-card">
+            <div class="fac-icon">🎤</div>
+            <div class="fac-body">
+                <div class="fac-title">Convention Hall &amp; Meeting Rooms</div>
+                <div class="fac-desc">Modern, state-of-the-art equipment including speakers and cameras — fully equipped for both face-to-face and virtual meetings.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🛏️</div>
+            <div class="fac-body">
+                <div class="fac-title">Hotel Rooms</div>
+                <div class="fac-desc">42 well-appointed rooms available for Adventist guests, delegates, and ministry partners.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🍽️</div>
+            <div class="fac-body">
+                <div class="fac-title">Cafeteria &amp; LHCafe</div>
+                <div class="fac-desc">On-site dining options serving staff, guests, and community members within the compound.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🏥</div>
+            <div class="fac-body">
+                <div class="fac-title">Clinic</div>
+                <div class="fac-desc">Equipped with AED, body scanner, and hospital beds — providing basic health services on-site.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🏢</div>
+            <div class="fac-body">
+                <div class="fac-title">Offices for GC Partners</div>
+                <div class="fac-desc">Dedicated office spaces for GCAS, Hope Channel, and SunPlus — supporting global Adventist operations.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🚐</div>
+            <div class="fac-body">
+                <div class="fac-title">Transportation</div>
+                <div class="fac-desc">Transport services available for SSD staff and visiting guests within and around the compound.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">💪</div>
+            <div class="fac-body">
+                <div class="fac-title">Gym</div>
+                <div class="fac-desc">Fully equipped with weights, cardio, and strength training equipment to support a healthy, active lifestyle.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🏃</div>
+            <div class="fac-body">
+                <div class="fac-title">Centers of Influence (COIs) — Sports</div>
+                <div class="fac-desc">Running · Biking · Volleyball · Basketball · Tennis · Pickleball · Zumba · and more — building community through active living.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🤝</div>
+            <div class="fac-body">
+                <div class="fac-title">SSD Department Collaboration</div>
+                <div class="fac-desc">Active partnerships with Health, APM, Family Ministries, Adventist Muslim relations, and other SSD departments.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🌍</div>
+            <div class="fac-body">
+                <div class="fac-title">Institutional Partners</div>
+                <div class="fac-desc">Proud to support and collaborate with Burman University, Loma Linda University Health, and Pennsylvania Adventist Conference.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🏛️</div>
+            <div class="fac-body">
+                <div class="fac-title">LGU Partnership</div>
+                <div class="fac-desc">A trusted go-to training space for the municipality — partnering with barangay and municipal health offices for disaster and emergency response seminars.</div>
+            </div>
+        </div>
+
+        <div class="fac-card">
+            <div class="fac-icon">🎄</div>
+            <div class="fac-body">
+                <div class="fac-title">Life Hope Carols</div>
+                <div class="fac-desc">Annual year-end community celebration featuring caroling and gift-giving — spreading joy and hope to the surrounding community.</div>
+            </div>
+        </div>
+
+        <div class="fac-card" style="grid-column: 1 / -1;">
+                <div class="fac-icon">🎓</div>
+                <div class="fac-body">
+                    <div class="fac-title">Educational Institutional Partners</div>
+                    <div class="fac-desc">Collaborating with both SDA and non-SDA schools:
+                        <div class="fac-tags">
+                            <span>Adventist University of the Philippines</span>
+                            <span>AIIAS</span>
+                            <span>Cavite State University</span>
+                            <span>Far Eastern University</span>
+                            <span>Kolehiyo ng Lungsod ng Dasmariñas</span>
+                            <span>National University</span>
+                            <span>Southern Philippine Adventist College</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
+
+    <p style="text-align:center; margin-top:32px; font-size:14px; color:var(--text-muted);">
+        Thinking of coming by? &nbsp;
+        <a href="#visit" style="color:var(--orange); font-weight:600; text-decoration:none; transition:color 0.2s;"
+           onmouseover="this.style.color='var(--orange-dark)'"
+           onmouseout="this.style.color='var(--orange)'">
+            See our hours &amp; location →
+        </a>
+    </p>
+
 </section>
 </div>
 
-<!-- ── GUEST ROOM BOOKING CAROUSEL ── -->
+<!-- ── FACILITIES SHOWCASE ── -->
 <section id="booking" style="background: rgba(192,57,43,0.03); border-top: 1px solid rgba(232,98,26,0.1);">
 <div class="booking-section-wrap">
     <div class="booking-header">
-        <span class="tag">🏠 Guest Rooms · LHC Building</span>
-        <h2 class="section-title">Looking for a place to stay?</h2>
+        <span class="tag">🏛️ Our Facilities</span>
+        <h2 class="section-title">LHC Guest Rooms</h2>
         <p>The LHC building has guest rooms available for booking — right on the Life Hope Center compound in Silang, Cavite.</p>
     </div>
 
@@ -810,9 +957,9 @@ footer {
     </div>
 
     <p style="text-align:center; font-size:12px; color:var(--text-light); margin-top:18px;">
-        <svg style="display:inline; vertical-align:middle;" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        Secure login required to complete your reservation
+        For room inquiries, please contact us directly at <strong>+63 998 583 0239</strong>
     </p>
+
 </div>
 </section>
 
